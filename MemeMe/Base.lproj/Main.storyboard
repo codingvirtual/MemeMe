@@ -175,6 +175,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-c0-O7H">
+                                <rect key="frame" x="0.0" y="59" width="600" height="497"/>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UtY-XT-XAX">
                                 <rect key="frame" x="0.0" y="15" width="600" height="44"/>
                                 <items>
@@ -192,7 +195,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eI0-mG-RIG">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eI0-mG-RIG">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="CS1-Sa-M5p">
@@ -207,27 +210,27 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-c0-O7H">
-                                <rect key="frame" x="0.0" y="59" width="600" height="497"/>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-b4-ze2">
                                 <rect key="frame" x="16" y="59" width="568" height="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jD3-1r-5fK">
                                 <rect key="frame" x="16" y="526" width="568" height="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eI0-mG-RIG" firstAttribute="leading" secondItem="REx-oQ-WhT" secondAttribute="leadingMargin" constant="-16" id="0U1-OY-Yke"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UtY-XT-XAX" secondAttribute="trailing" constant="-16" id="5aw-PE-NEj"/>
+                            <constraint firstItem="eI0-mG-RIG" firstAttribute="bottom" secondItem="REx-oQ-WhT" secondAttribute="bottomMargin" id="L2D-iA-rwh"/>
                             <constraint firstItem="UtY-XT-XAX" firstAttribute="leading" secondItem="REx-oQ-WhT" secondAttribute="leadingMargin" constant="-16" id="PSC-7v-h2A"/>
                             <constraint firstItem="UtY-XT-XAX" firstAttribute="top" secondItem="REx-oQ-WhT" secondAttribute="topMargin" constant="15" id="Vn9-Mk-wKt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eI0-mG-RIG" secondAttribute="trailing" constant="-16" id="yVV-gw-GJI"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
