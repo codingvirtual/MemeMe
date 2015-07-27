@@ -20,8 +20,11 @@ import UIKit
 
 class MemeEditor: UIViewController {
     
-    @IBOutlet var imageView: UIImageView?
-    @IBOutlet var textField: UITextField?
+    var meme: Meme?
+    
+    @IBOutlet var imageView : UIImageView?
+    @IBOutlet var topText: UITextField?
+    @IBOutlet var bottomText: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +38,7 @@ class MemeEditor: UIViewController {
     
     
     @IBAction func showShare() {
-        let image = UIImage()
-        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let controller = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
@@ -47,8 +49,7 @@ class MemeEditor: UIViewController {
         controller.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { action in self.dismissViewControllerAnimated(true, completion: nil) })
         self.presentViewController(controller, animated: true, completion: nil)
     }
-    
-    // Create a UIImage that combines the Image View and the Textfields
+
     func generateMemedImage() -> UIImage {
         // render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -61,7 +62,7 @@ class MemeEditor: UIViewController {
     
     func save() {
         //Create the meme
-        var meme = Meme( text: textField!.text, image:
+        var meme = Meme( topText: topText!.text!, bottomText: bottomText!.text!, image:
             imageView!.image!, memedImage: generateMemedImage())
         
         // Add it to the memes array in the Application Delegate
@@ -69,5 +70,8 @@ class MemeEditor: UIViewController {
             AppDelegate).memes.append(meme)
     }
     
+    @IBAction func cancel() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 
