@@ -18,9 +18,8 @@ import UIKit
 
 import UIKit
 
-class MemeEditor: UIViewController {
-    
-    var meme: Meme?
+class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
     
     @IBOutlet var imageView : UIImageView?
     @IBOutlet var topText: UITextField?
@@ -29,24 +28,30 @@ class MemeEditor: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    
-    @IBAction func showImagePicker() {
-        let nextController = UIImagePickerController()
-        self.presentViewController(nextController, animated: true, completion: nil)
+ 
+    @IBAction func pickAnImageFromAlbum (sender: AnyObject) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func pickAnImageFromCamera (sender: AnyObject) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as! UIImage! {
+            self.imageView!.image = image
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
     
     @IBAction func showShare() {
         let controller = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
-        self.presentViewController(controller, animated: true, completion: nil)
-    }
-    
-    @IBAction func showAlert() {
-        let controller = UIAlertController()
-        controller.title = "This is a test"
-        controller.message = "Here's an alert"
-        controller.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { action in self.dismissViewControllerAnimated(true, completion: nil) })
         self.presentViewController(controller, animated: true, completion: nil)
     }
 

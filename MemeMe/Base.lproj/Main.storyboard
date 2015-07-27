@@ -195,15 +195,19 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eI0-mG-RIG">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="camera" id="CS1-Sa-M5p"/>
+                                    <barButtonItem systemItem="camera" id="CS1-Sa-M5p">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="ldm-qM-kVD" id="39N-dO-LNu"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Album" id="lZ7-Ed-DCE">
                                         <connections>
-                                            <action selector="showImagePicker" destination="ldm-qM-kVD" id="mQI-pQ-C2A"/>
+                                            <action selector="pickAnImageFromAlbum:" destination="ldm-qM-kVD" id="dfu-Qz-kYV"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-c0-O7H">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-c0-O7H">
                                 <rect key="frame" x="0.0" y="59" width="600" height="497"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-b4-ze2">
