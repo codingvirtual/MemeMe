@@ -25,6 +25,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet var topText: UITextField?
     @IBOutlet var bottomText: UITextField?
     var memeTextAttributes: NSDictionary?
+    @IBOutlet var cameraButton: UIBarButtonItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +37,39 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         ]
         topText!.defaultTextAttributes = memeTextAttributes
         bottomText!.defaultTextAttributes = memeTextAttributes
+        topText!.textAlignment = NSTextAlignment.Center
+        bottomText!.textAlignment = NSTextAlignment.Center
+        // Subscribe to keyboard notifications to allow the view to raise when necessary
+        self.subscribeToKeyboardNotifications()
+        cameraButton!.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
  
+    // Unsubscribe
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.unsubscribeFromKeyboardNotifications()
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if bottomText!.isFirstResponder() {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
+    }
+    
     @IBAction func pickAnImageFromAlbum (sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -87,5 +119,6 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBAction func cancel() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
 }
 

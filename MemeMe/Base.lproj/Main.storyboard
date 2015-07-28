@@ -179,7 +179,7 @@
                                 <rect key="frame" x="16" y="523" width="568" height="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-b4-ze2">
                                 <rect key="frame" x="16" y="70" width="568" height="17"/>
@@ -247,6 +247,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomText" destination="jD3-1r-5fK" id="NPu-aj-MUs"/>
+                        <outlet property="cameraButton" destination="CS1-Sa-M5p" id="iq2-0W-5Nh"/>
                         <outlet property="imageView" destination="kiE-c0-O7H" id="PRm-oG-KqW"/>
                         <outlet property="topText" destination="qKU-b4-ze2" id="00w-xx-5OB"/>
                     </connections>
