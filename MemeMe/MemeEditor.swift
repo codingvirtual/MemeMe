@@ -8,29 +8,22 @@
 
 import UIKit
 
-//
-//  ViewController.swift
-//  Experiment
-//
-//  Created by Greg Palen on 7/26/15.
-//  Copyright (c) 2015 codingvirtual. All rights reserved.
-//
-
-import UIKit
-
-class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditor:   UIViewController,
+                    UIImagePickerControllerDelegate,
+                    UINavigationControllerDelegate,
+                    UITextFieldDelegate {
 
     
     @IBOutlet var imageView : UIImageView?
     @IBOutlet var topText: UITextField?
     @IBOutlet var bottomText: UITextField?
     @IBOutlet var cameraButton: UIBarButtonItem?
+    @IBOutlet var shareButton: UIBarButtonItem?
     @IBOutlet var navBar: UINavigationBar?
     @IBOutlet var toolBar: UIToolbar?
     @IBOutlet var snapshotView: UIView?
     
     var memeTextAttributes: NSDictionary?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +40,19 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         // Subscribe to keyboard notifications to allow the view to raise when necessary
         self.subscribeToKeyboardNotifications()
         cameraButton!.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        if (imageView!.image == nil) {
+            shareButton!.enabled = false
+        }
+        self.topText?.delegate = self
+        self.bottomText?.delegate = self
     }
  
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true;
+    }
+    
     // Unsubscribe
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -57,15 +61,23 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func keyboardWillShow(notification: NSNotification) {
         if bottomText!.isFirstResponder() {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if bottomText!.isFirstResponder() {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
     
@@ -93,6 +105,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         if let image = info[UIImagePickerControllerOriginalImage] as! UIImage! {
             self.imageView!.image = image
             self.dismissViewControllerAnimated(true, completion: nil)
+            shareButton!.enabled = true
         }
     }
     
@@ -118,7 +131,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         return memedImage
     }
     
-    func save() {
+    func saveMeme() {
         //Create the meme
         var meme = Meme( topText: topText!.text!, bottomText: bottomText!.text!, image:
             imageView!.image!, memedImage: generateMemedImage())
@@ -133,12 +146,12 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     func saveAndExit(activityType: String!, completed: Bool, returnedItems: [AnyObject]!, error: NSError!) {
-        // Return if cancelled
-        if (!completed) {
-            cancel()
+        // If a share action was completed, assume the user is done. Save the meme and go
+        // back to Sent Memes view
+        if (completed) {
+            saveMeme();
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
-        save();
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
