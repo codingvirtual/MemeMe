@@ -99,10 +99,15 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
 
     func generateMemedImage() -> UIImage {
         // render view to an image
+        self.navigationController?.setToolbarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         UIGraphicsBeginImageContext(self.view.frame.size)
+
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        self.navigationController?.setToolbarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         return memedImage
     }
