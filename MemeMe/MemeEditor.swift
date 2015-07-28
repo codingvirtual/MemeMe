@@ -93,6 +93,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     @IBAction func showShare() {
         let controller = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
+        controller.completionWithItemsHandler = saveAndExit
         self.presentViewController(controller, animated: true, completion: nil)
     }
 
@@ -120,5 +121,13 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func saveAndExit(activityType: String!, completed: Bool, returnedItems: [AnyObject]!, error: NSError!) {
+        // Return if cancelled
+        if (!completed) {
+            cancel()
+        }
+        save();
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 

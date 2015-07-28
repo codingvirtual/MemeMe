@@ -9,7 +9,7 @@ import UIKit
 
 class MemeTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var memes: [Meme]!
+    var memes: [Meme]?
     
     // MARK: Table View Data Source
     
@@ -18,16 +18,17 @@ class MemeTableViewController: UITableViewController, UITableViewDataSource, UIT
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
+        self.tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.memes.count
+        return self.memes!.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell") as! MemeTableViewCell
-        let meme = self.memes[indexPath.row]
+        let meme = self.memes![indexPath.row]
         
         // Set the name and image
         cell.memeText!.text = meme.topText + meme.bottomText
@@ -39,7 +40,7 @@ class MemeTableViewController: UITableViewController, UITableViewDataSource, UIT
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        detailController.meme = self.memes[indexPath.row]
+        detailController.meme = self.memes![indexPath.row]
         self.navigationController!.pushViewController(detailController, animated: true)
         
     }
