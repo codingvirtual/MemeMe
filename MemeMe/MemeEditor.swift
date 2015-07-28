@@ -24,8 +24,13 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet var imageView : UIImageView?
     @IBOutlet var topText: UITextField?
     @IBOutlet var bottomText: UITextField?
-    var memeTextAttributes: NSDictionary?
     @IBOutlet var cameraButton: UIBarButtonItem?
+    @IBOutlet var navBar: UINavigationBar?
+    @IBOutlet var toolBar: UIToolbar?
+    @IBOutlet var snapshotView: UIView?
+    
+    var memeTextAttributes: NSDictionary?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,15 +104,16 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
 
     func generateMemedImage() -> UIImage {
         // render view to an image
-        self.navigationController?.setToolbarHidden(true, animated: false)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.navBar?.hidden = true
+        self.toolBar?.hidden = true
+        UIGraphicsBeginImageContext(self.view!.frame.size)
 
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        self.snapshotView!.drawViewHierarchyInRect(self.snapshotView!.frame, afterScreenUpdates: true)
+        
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        self.navigationController?.setToolbarHidden(false, animated: false)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navBar?.hidden = false
+        self.toolBar?.hidden = false
         
         return memedImage
     }
