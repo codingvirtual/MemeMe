@@ -96,7 +96,7 @@
         <scene sceneID="CCS-wn-T6f">
             <objects>
                 <tableViewController id="GH2-YS-gGb" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="210" sectionHeaderHeight="22" sectionFooterHeight="22" id="eTx-hY-MVD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="eTx-hY-MVD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -107,26 +107,25 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-70-hDr">
-                                            <rect key="frame" x="14" y="0.0" width="200" height="200"/>
+                                            <rect key="frame" x="6" y="0.0" width="150" height="150"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="200" id="Jd7-Xv-3mK"/>
+                                                <constraint firstAttribute="width" constant="150" id="Jd7-Xv-3mK"/>
                                             </constraints>
                                         </imageView>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3nv-hl-egb">
-                                            <rect key="frame" x="223" y="92" width="365" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="365" id="eyc-96-RF5"/>
-                                            </constraints>
+                                            <rect key="frame" x="172" y="66" width="416" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="3nv-hl-egb" firstAttribute="top" secondItem="dg1-2z-D1X" secondAttribute="topMargin" constant="84" id="Km2-mQ-Yfc"/>
+                                        <constraint firstItem="Onb-70-hDr" firstAttribute="leading" secondItem="dg1-2z-D1X" secondAttribute="leadingMargin" constant="-2" id="G1V-rS-JJh"/>
                                         <constraint firstItem="Onb-70-hDr" firstAttribute="centerY" secondItem="3nv-hl-egb" secondAttribute="centerY" id="QWK-0C-Gx1"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Onb-70-hDr" secondAttribute="bottom" constant="-8.5" id="Suq-5N-iFk"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="3nv-hl-egb" secondAttribute="trailing" constant="4" id="UJs-2F-PKP"/>
                                         <constraint firstItem="Onb-70-hDr" firstAttribute="top" secondItem="dg1-2z-D1X" secondAttribute="top" id="Ykg-5T-wFV"/>
-                                        <constraint firstItem="Onb-70-hDr" firstAttribute="leading" secondItem="dg1-2z-D1X" secondAttribute="leadingMargin" constant="6" id="t10-84-BVq"/>
+                                        <constraint firstItem="Onb-70-hDr" firstAttribute="top" secondItem="dg1-2z-D1X" secondAttribute="topMargin" constant="-8" id="iJh-4V-4md"/>
+                                        <constraint firstItem="3nv-hl-egb" firstAttribute="leading" secondItem="Onb-70-hDr" secondAttribute="trailing" constant="16" id="oyd-xZ-PfQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -318,6 +317,6 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gX5-5y-LzV"/>
+        <segue reference="omw-Kk-UKd"/>
     </inferredMetricsTieBreakers>
 </document>

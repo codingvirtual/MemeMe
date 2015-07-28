@@ -37,16 +37,20 @@ class MemeEditor:   UIViewController,
         bottomText!.defaultTextAttributes = memeTextAttributes
         topText!.textAlignment = NSTextAlignment.Center
         bottomText!.textAlignment = NSTextAlignment.Center
+        topText?.delegate = self
+        bottomText?.delegate = self
+    }
+ 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         // Subscribe to keyboard notifications to allow the view to raise when necessary
         subscribeToKeyboardNotifications()
         cameraButton!.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         if (imageView!.image == nil) {
             shareButton!.enabled = false
         }
-        topText?.delegate = self
-        bottomText?.delegate = self
     }
- 
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
@@ -77,7 +81,7 @@ class MemeEditor:   UIViewController,
     
     func keyboardWillHide(notification: NSNotification) {
         if bottomText!.isFirstResponder() {
-            view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y = 0
         }
     }
     
