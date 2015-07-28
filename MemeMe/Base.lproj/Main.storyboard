@@ -63,34 +63,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qN8-Fj-r28">
-                                            <rect key="frame" x="4" y="4" width="202" height="202"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qN8-Fj-r28">
+                                            <rect key="frame" x="8" y="8" width="134" height="134"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="qN8-Fj-r28" firstAttribute="top" secondItem="RLH-Wh-NbI" secondAttribute="topMargin" id="5vX-Dj-0iw"/>
-                                    <constraint firstItem="qN8-Fj-r28" firstAttribute="trailing" secondItem="RLH-Wh-NbI" secondAttribute="trailingMargin" id="ABt-ox-hpx"/>
-                                    <constraint firstItem="qN8-Fj-r28" firstAttribute="bottom" secondItem="RLH-Wh-NbI" secondAttribute="bottomMargin" id="c45-Kt-gNZ"/>
-                                    <constraint firstItem="qN8-Fj-r28" firstAttribute="leading" secondItem="RLH-Wh-NbI" secondAttribute="leadingMargin" id="ouV-11-ewQ"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="5vX-Dj-0iw"/>
-                                        <exclude reference="ABt-ox-hpx"/>
-                                        <exclude reference="c45-Kt-gNZ"/>
-                                        <exclude reference="ouV-11-ewQ"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="5vX-Dj-0iw"/>
-                                        <include reference="ABt-ox-hpx"/>
-                                        <include reference="c45-Kt-gNZ"/>
-                                        <include reference="ouV-11-ewQ"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outlet property="memeImageView" destination="qN8-Fj-r28" id="OBc-mH-ALN"/>
                                 </connections>

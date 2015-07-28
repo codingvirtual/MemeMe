@@ -24,11 +24,4 @@ struct Meme {
         self.image = image
         self.memedImage = memedImage
     }
-    
-    init(topText: String, bottomText: String) {
-        self.topText = topText
-        self.bottomText = bottomText
-        self.image = UIImage(named: "big")!
-        self.memedImage = UIImage(named: "big")!
-    }
 }
