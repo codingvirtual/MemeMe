@@ -257,19 +257,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fyL-VH-MHG">
-                                <rect key="frame" x="240" y="250" width="120" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="0x0-RQ-SzB"/>
-                                    <constraint firstAttribute="height" constant="100" id="UkC-L1-8GD"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fyL-VH-MHG">
+                                <rect key="frame" x="16" y="11" width="568" height="569"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="fyL-VH-MHG" secondAttribute="centerY" id="C42-u5-8LP"/>
+                            <constraint firstAttribute="centerY" secondItem="fyL-VH-MHG" secondAttribute="centerY" constant="4.5" id="C42-u5-8LP"/>
+                            <constraint firstItem="fyL-VH-MHG" firstAttribute="leading" secondItem="rZR-qz-dfH" secondAttribute="leadingMargin" id="GwZ-ls-MB6"/>
+                            <constraint firstItem="fyL-VH-MHG" firstAttribute="top" secondItem="rZR-qz-dfH" secondAttribute="topMargin" constant="11" id="MpZ-cK-oDb"/>
                             <constraint firstAttribute="centerX" secondItem="fyL-VH-MHG" secondAttribute="centerX" id="OUg-Dd-Emz"/>
-                            <constraint firstAttribute="centerY" secondItem="fyL-VH-MHG" secondAttribute="centerY" id="dtv-l2-bnZ"/>
+                            <constraint firstItem="bJW-8E-MxX" firstAttribute="top" secondItem="fyL-VH-MHG" secondAttribute="bottom" constant="20" id="Zrc-LF-ElG"/>
+                            <constraint firstAttribute="centerY" secondItem="fyL-VH-MHG" secondAttribute="centerY" constant="4.5" id="dtv-l2-bnZ"/>
                             <constraint firstAttribute="centerX" secondItem="fyL-VH-MHG" secondAttribute="centerX" id="l6w-id-dQ7"/>
                         </constraints>
                     </view>
