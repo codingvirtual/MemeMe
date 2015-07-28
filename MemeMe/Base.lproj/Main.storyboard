@@ -175,9 +175,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-c0-O7H">
-                                <rect key="frame" x="0.0" y="59" width="600" height="497"/>
-                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jD3-1r-5fK">
+                                <rect key="frame" x="16" y="523" width="568" height="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-b4-ze2">
+                                <rect key="frame" x="16" y="70" width="568" height="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UtY-XT-XAX">
                                 <rect key="frame" x="0.0" y="15" width="600" height="44"/>
                                 <items>
@@ -210,37 +219,28 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-b4-ze2">
-                                <rect key="frame" x="16" y="70" width="568" height="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jD3-1r-5fK">
-                                <rect key="frame" x="16" y="523" width="568" height="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-c0-O7H">
+                                <rect key="frame" x="0.0" y="59" width="600" height="497"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="jD3-1r-5fK" secondAttribute="bottom" constant="60" id="33J-qW-Aen"/>
                             <constraint firstAttribute="trailing" secondItem="kiE-c0-O7H" secondAttribute="trailing" id="5Ib-NQ-Zsf"/>
                             <constraint firstItem="qKU-b4-ze2" firstAttribute="top" secondItem="kiE-c0-O7H" secondAttribute="top" constant="11" id="5Yd-l5-ky3"/>
+                            <constraint firstItem="eI0-mG-RIG" firstAttribute="bottom" secondItem="REx-oQ-WhT" secondAttribute="bottomMargin" id="AAm-zA-vfc"/>
                             <constraint firstItem="eI0-mG-RIG" firstAttribute="trailing" secondItem="kiE-c0-O7H" secondAttribute="trailing" id="CaF-nk-3GE"/>
                             <constraint firstItem="UtY-XT-XAX" firstAttribute="leading" secondItem="REx-oQ-WhT" secondAttribute="leading" id="DOk-rF-5iM"/>
                             <constraint firstItem="qKU-b4-ze2" firstAttribute="trailing" secondItem="jD3-1r-5fK" secondAttribute="trailing" id="FDc-wM-TQ2"/>
                             <constraint firstItem="jD3-1r-5fK" firstAttribute="leading" secondItem="REx-oQ-WhT" secondAttribute="leadingMargin" id="MPS-li-6UT"/>
                             <constraint firstItem="UtY-XT-XAX" firstAttribute="centerX" secondItem="qKU-b4-ze2" secondAttribute="centerX" id="Mvf-wz-onW"/>
                             <constraint firstItem="kiE-c0-O7H" firstAttribute="trailing" secondItem="UtY-XT-XAX" secondAttribute="trailing" id="PhV-pa-y4j"/>
-                            <constraint firstItem="eI0-mG-RIG" firstAttribute="top" secondItem="5Kk-MR-SEs" secondAttribute="top" id="YUi-l2-vgC"/>
                             <constraint firstItem="UtY-XT-XAX" firstAttribute="top" secondItem="REx-oQ-WhT" secondAttribute="topMargin" constant="15" id="b3i-sS-Sgh"/>
                             <constraint firstItem="kiE-c0-O7H" firstAttribute="top" secondItem="UtY-XT-XAX" secondAttribute="bottom" id="ehq-Tk-px8"/>
                             <constraint firstItem="eI0-mG-RIG" firstAttribute="top" secondItem="kiE-c0-O7H" secondAttribute="bottom" id="ja7-Qb-XFA"/>
                             <constraint firstItem="UtY-XT-XAX" firstAttribute="leading" secondItem="kiE-c0-O7H" secondAttribute="leading" id="mc3-nR-rEw"/>
                             <constraint firstItem="eI0-mG-RIG" firstAttribute="leading" secondItem="kiE-c0-O7H" secondAttribute="leading" id="mm2-tK-Hbw"/>
                             <constraint firstItem="jD3-1r-5fK" firstAttribute="leading" secondItem="qKU-b4-ze2" secondAttribute="leading" id="sbT-0t-8d1"/>
-                            <constraint firstItem="5Kk-MR-SEs" firstAttribute="top" secondItem="jD3-1r-5fK" secondAttribute="bottom" constant="16" id="z5d-Z2-LB0"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
