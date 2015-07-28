@@ -24,9 +24,18 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet var imageView : UIImageView?
     @IBOutlet var topText: UITextField?
     @IBOutlet var bottomText: UITextField?
+    var memeTextAttributes: NSDictionary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : 2.0
+        ]
+        topText!.defaultTextAttributes = memeTextAttributes
+        bottomText!.defaultTextAttributes = memeTextAttributes
     }
  
     @IBAction func pickAnImageFromAlbum (sender: AnyObject) {
