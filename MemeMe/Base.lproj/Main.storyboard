@@ -210,7 +210,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-b4-ze2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-b4-ze2">
                                 <rect key="frame" x="16" y="70" width="568" height="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -226,7 +226,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kiE-c0-O7H" secondAttribute="trailing" id="5Ib-NQ-Zsf"/>
-                            <constraint firstItem="qKU-b4-ze2" firstAttribute="top" secondItem="kiE-c0-O7H" secondAttribute="top" constant="16" id="5Yd-l5-ky3"/>
+                            <constraint firstItem="qKU-b4-ze2" firstAttribute="top" secondItem="kiE-c0-O7H" secondAttribute="top" constant="11" id="5Yd-l5-ky3"/>
                             <constraint firstItem="eI0-mG-RIG" firstAttribute="trailing" secondItem="kiE-c0-O7H" secondAttribute="trailing" id="CaF-nk-3GE"/>
                             <constraint firstItem="UtY-XT-XAX" firstAttribute="leading" secondItem="REx-oQ-WhT" secondAttribute="leading" id="DOk-rF-5iM"/>
                             <constraint firstItem="qKU-b4-ze2" firstAttribute="trailing" secondItem="jD3-1r-5fK" secondAttribute="trailing" id="FDc-wM-TQ2"/>
